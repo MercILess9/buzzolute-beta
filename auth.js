@@ -10,7 +10,8 @@ async function checkAuth(type = "link15") {
 
   try {
     const res = await fetch(
-      `${GAS_URL}?userId=${profile.userId}&type=${type}`
+      `${GAS_URL}?userId=${profile.userId}&type=${type}`,
+      { redirect: 'follow', credentials: 'omit' }
     );
 
     const result = await res.json();
